@@ -1,63 +1,101 @@
-# Library Book Catalog
+A simple Python application that manages a library's book catalog using Object-Oriented Programming (OOP) principles.
+Originally implemented in Java, this version has been re-implemented in Python using dataclasses for cleaner, more readable code.
 
-A simple Java application that manages a library's book catalog using Object-Oriented Programming (OOP) principles.
+✨ Features
 
-## Features
+Add Books – Add new books to the library catalog
 
-- **Add Books**: Add new books to the library catalog.
-- **Remove Books**: Remove books from the catalog by their ISBN.
-- **Search Books**: Search for books by their title.
-- **List Books**: Display a list of all books currently in the catalog.
+Remove Books – Remove books from the catalog by their ISBN
 
-## Class Overview
+Search Books – Search for books by their title (case-insensitive)
 
-### Book Class
+List Books – Display all books currently in the catalog
+
+🏗️ Class Overview
+🧾 Book Class
+
 Represents a book in the library.
 
-**Attributes:**
-- `title`: The title of the book.
-- `author`: The author of the book.
-- `ISBN`: The ISBN number of the book.
-- `publisher`: The publisher of the book.
-- `yearPublished`: The year the book was published.
-- `isAvailable`: Availability status of the book.
+Attributes
 
-**Methods:**
-- `getTitle()`, `getAuthor()`, `getISBN()`, `getPublisher()`, `getYearPublished()`: Return corresponding attributes.
-- `isAvailable()`: Returns whether the book is available or not.
-- `setAvailable(boolean available)`: Sets the availability status of the book.
-- `toString()`: Returns a string representation of the book's details.
+title – The title of the book
 
-### Library Class
-Manages a collection of `Book` objects.
+author – The author of the book
 
-**Methods:**
-- `addBook(Book book)`: Adds a new book to the library.
-- `removeBook(String ISBN)`: Removes a book from the library using its ISBN.
-- `searchBookByTitle(String title)`: Searches for a book by its title.
-- `listBooks()`: Lists all books in the library.
+ISBN – The ISBN number of the book
 
-### Main Class
-Demonstrates the functionality of the `Library` and `Book` classes.
+publisher – The publisher of the book
 
-**Methods:**
-- `main(String[] args)`: The entry point of the application, where books are added, searched, removed, and listed.
+year – The year the book was published
 
-## Example Usage
+Methods
 
-```java
-Library library = new Library();
+__str__() – Returns a string representation of the book’s details
 
-Book book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "9780743273565", "Scribner", 1925);
-Book book2 = new Book("1984", "George Orwell", "9780451524935", "Signet Classic", 1949);
+🏛️ Library Class
 
-library.addBook(book1);
-library.addBook(book2);
+Manages a collection of Book objects.
 
-library.listBooks();
+Methods
 
-library.searchBookByTitle("1984");
+add_book(book) – Adds a new book to the library
 
-library.removeBook("9780451524935");
+remove_book(ISBN) – Removes a book using its ISBN
 
-library.listBooks();
+search_book_by_title(title) – Searches for a book by title (case-insensitive)
+
+list_books() – Lists all books in the library
+
+▶️ main.py
+
+Demonstrates the functionality of the Library and Book classes.
+
+💻 Example Usage
+from library import Library
+from book import Book
+
+library = Library()
+
+book1 = Book("The Great Gatsby", "F. Scott Fitzgerald", "9780743273565", "Scribner", 1925)
+book2 = Book("1984", "George Orwell", "9780451524935", "Signet Classic", 1949)
+
+library.add_book(book1)
+library.add_book(book2)
+
+print("\nAll books in library:")
+library.list_books()
+
+print("\nSearching for '1984':")
+print(library.search_book_by_title("1984"))
+
+print("\nRemoving '1984' by ISBN:")
+library.remove_book("9780451524935")
+
+print("\nAll books after removal:")
+library.list_books()
+
+⚙️ How to Run
+
+Clone this repository:
+
+git clone https://github.com/<your-username>/Library-Book-Catalog.git
+cd Library-Book-Catalog
+
+
+(Optional) Create a virtual environment:
+
+python -m venv venv
+source venv/bin/activate  # on macOS/Linux
+venv\Scripts\activate     # on Windows
+
+
+Run the main file:
+
+python main.py
+
+🧪 Testing (optional)
+
+If you use pytest for testing:
+
+pip install pytest
+pytest -q
