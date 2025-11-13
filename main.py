@@ -1,5 +1,6 @@
-from library import Library
-from book import Book
+from Library import Library
+from Book import Book
+
 
 def main():
     library = Library()
@@ -28,3 +29,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
